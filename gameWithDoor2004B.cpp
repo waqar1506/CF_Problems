@@ -18,14 +18,24 @@ const int MOD = 1e9 + 7;
 void solve()
 {
     int l, r, L, R;
+    // Input the end point of the first and second intervals
     cin >> l >> r;
     cin >> L >> R;
+
+    // Calculate the number of common integers points between the intervals
     int interS = min(r,R) - max(l,L) + 1;
+
+    // Initialize the answer as the number of common points - 1
     int ans = interS - 1;
+
+    // 
     if(interS <= 0){
+        // If the points are not overlap, atleast one operation needed
         ans = 1;
     }else{
+        // Add one if the left end points are different
         ans += (l != L);
+        // Add one if the right end points are different
         ans += (r != R);
     }
     cout << ans << endl;
